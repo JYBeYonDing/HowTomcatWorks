@@ -1012,7 +1012,7 @@ public final class HttpConnector
             }
             //            if (debug >= 3)
             //                log("run: Assigning socket to processor " + processor);
-            processor.assign(socket);
+            processor.assign(socket);// 直接返回，不需要等待HttpProcessor实例完成解析
 
             // The processor will recycle itself when it finishes
 

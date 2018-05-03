@@ -51,7 +51,7 @@ public class HttpProcessor {
 
       response.setHeader("Server", "Pyrmont Servlet Container");
 
-      parseRequest(input, output);
+      parseRequest(input, output);// 解析请求行
       parseHeaders(input);
 
       //check if this is a request for a servlet or a static resource
@@ -141,7 +141,7 @@ public class HttpProcessor {
     throws IOException, ServletException {
 
     // Parse the incoming request line
-    input.readRequestLine(requestLine);
+    input.readRequestLine(requestLine);// 使用input中的信息填充requestLine
     String method =
       new String(requestLine.method, 0, requestLine.methodEnd);
     String uri = null;
@@ -168,7 +168,7 @@ public class HttpProcessor {
 
 
     // Checking for an absolute URI (with the HTTP protocol)
-    if (!uri.startsWith("/")) {
+    if (!uri.startsWith("/")) {//说明是绝对路径
       int pos = uri.indexOf("://");
       // Parsing out protocol and host name
       if (pos != -1) {

@@ -27,7 +27,7 @@ public class ServletProcessor1 {
       String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString() ;
       // the code for forming the URL is taken from the addRepository method in
       // org.apache.catalina.loader.StandardClassLoader class.
-      urls[0] = new URL(null, repository, streamHandler);
+      urls[0] = new URL(null, repository, streamHandler);// 这里streamHandler=null，定义streamHandler只是为了防止在调用构造函数时重载出错
       loader = new URLClassLoader(urls);
     }
     catch (IOException e) {
